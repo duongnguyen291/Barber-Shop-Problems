@@ -1,0 +1,359 @@
+
+=========================BARBER SHOP=========================
+
+| Hành động: Thợ cắt tóc đang ngủ
+
+| Trạng thái barber shop: Đang mở
+
+| Danh sách khách đang chờ: Không có khách
+
+
+===========================================================
+
+
+=========================BARBER SHOP=========================
+
+| Hành động: Thợ cắt tóc đang ngủ
+
+| Trạng thái barber shop: Đang mở
+
+| Danh sách khách đang chờ: Không có khách
+
+
+===========================================================
+
+
+=========================BARBER SHOP=========================
+
+| Hành động: Khách hàng 0 đang chờ trong phòng chờ
+
+| Trạng thái barber shop: Đang mở
+
+| Danh sách khách đang chờ: [0]
+
+
+===========================================================
+
+
+=========================BARBER SHOP=========================
+
+| Hành động: Khách hàng 4 đang chờ trong phòng chờ
+
+| Trạng thái barber shop: Đang mở
+
+| Danh sách khách đang chờ: [0, 4]
+
+
+===========================================================
+
+=========================BARBER SHOP=========================
+
+
+| Hành động: Thợ mời khách vào cắt tóc
+
+| Trạng thái barber shop: Đang mở
+
+| Danh sách khách đang chờ: [0, 4]
+
+
+===========================================================
+
+
+=========================BARBER SHOP=========================
+
+| Hành động: Thợ đang cắt tóc cho khách hàng 0
+
+| Trạng thái barber shop: Đang mở
+
+| Danh sách khách đang chờ: [4]
+
+
+===========================================================
+
+
+=========================BARBER SHOP=========================
+
+| Hành động: Khách hàng 3 đang chờ trong phòng chờ
+
+| Trạng thái barber shop: Đang mở
+
+| Danh sách khách đang chờ: [4, 3]
+
+
+===========================================================
+
+
+=========================BARBER SHOP=========================
+
+| Hành động: Khách hàng 1 đang chờ trong phòng chờ
+
+| Trạng thái barber shop: Đang mở
+
+| Danh sách khách đang chờ: [4, 3, 1]
+
+
+===========================================================
+
+
+=========================BARBER SHOP=========================
+
+| Hành động: Thợ đã cắt tóc xong cho khách hàng 0
+
+| Trạng thái barber shop: Đang mở
+
+| Danh sách khách đang chờ: [4, 3, 1]
+
+
+===========================================================
+
+
+=========================BARBER SHOP=========================
+
+=========================BARBER SHOP=========================
+
+
+| Hành động: Thợ mời khách vào cắt tóc
+| Hành động: Khách hàng 0 đã cắt tóc xong
+
+
+| Trạng thái barber shop: Đang mở
+
+| Danh sách khách đang chờ: [4, 3, 1]
+| Trạng thái barber shop: Đang mở
+
+
+
+===========================================================
+
+| Danh sách khách đang chờ: [4, 3, 1]
+
+=========================BARBER SHOP=========================
+
+
+
+===========================================================
+| Hành động: Thợ đang cắt tóc cho khách hàng 4
+
+
+| Trạng thái barber shop: Đang mở
+
+| Danh sách khách đang chờ: [3, 1]
+
+
+===========================================================
+
+
+=========================BARBER SHOP=========================
+
+| Hành động: Khách hàng 2 đang chờ trong phòng chờ
+
+| Trạng thái barber shop: Đang mở
+
+| Danh sách khách đang chờ: [3, 1, 2]
+
+
+===========================================================
+
+
+=========================BARBER SHOP=========================
+
+| Hành động: Khách hàng 5 rời đi vì phòng chờ đã đầy
+
+| Trạng thái barber shop: Đang mở
+
+| Danh sách khách đang chờ: [3, 1, 2]
+
+
+===========================================================
+
+
+=========================BARBER SHOP=========================
+
+| Hành động: Thợ đã cắt tóc xong cho khách hàng 4
+
+| Trạng thái barber shop: Đang mở
+
+| Danh sách khách đang chờ: [3, 1, 2]
+
+
+===========================================================
+
+
+=========================BARBER SHOP=========================
+
+
+=========================BARBER SHOP=========================
+| Hành động: Thợ mời khách vào cắt tóc
+
+
+| Trạng thái barber shop: Đang mở
+
+| Hành động: Khách hàng 4 đã cắt tóc xong
+
+| Danh sách khách đang chờ: [3, 1, 2]
+| Trạng thái barber shop: Đang mở
+
+
+
+===========================================================
+
+| Danh sách khách đang chờ: [3, 1, 2]
+
+=========================BARBER SHOP=========================
+
+
+
+===========================================================
+| Hành động: Thợ đang cắt tóc cho khách hàng 3
+
+
+| Trạng thái barber shop: Đang mở
+
+| Danh sách khách đang chờ: [1, 2]
+
+
+===========================================================
+
+
+=========================BARBER SHOP=========================
+
+| Hành động: Thợ đã cắt tóc xong cho khách hàng 3
+
+| Trạng thái barber shop: Đang mở
+
+| Danh sách khách đang chờ: [1, 2]
+
+
+===========================================================
+
+
+=========================BARBER SHOP=========================
+
+
+=========================BARBER SHOP=========================
+| Hành động: Thợ mời khách vào cắt tóc
+
+
+| Trạng thái barber shop: Đang mở
+| Hành động: Khách hàng 3 đã cắt tóc xong
+
+
+| Danh sách khách đang chờ: [1, 2]
+| Trạng thái barber shop: Đang mở
+
+
+
+===========================================================
+| Danh sách khách đang chờ: [1, 2]
+
+
+
+=========================BARBER SHOP=========================
+
+
+===========================================================
+| Hành động: Thợ đang cắt tóc cho khách hàng 1
+
+
+| Trạng thái barber shop: Đang mở
+
+| Danh sách khách đang chờ: [2]
+
+
+===========================================================
+
+
+=========================BARBER SHOP=========================
+
+| Hành động: Thợ đã cắt tóc xong cho khách hàng 1
+
+| Trạng thái barber shop: Đang mở
+
+| Danh sách khách đang chờ: [2]
+
+
+===========================================================
+
+
+=========================BARBER SHOP=========================
+
+=========================BARBER SHOP=========================
+
+
+| Hành động: Thợ mời khách vào cắt tóc
+| Hành động: Khách hàng 1 đã cắt tóc xong
+
+
+| Trạng thái barber shop: Đang mở
+| Trạng thái barber shop: Đang mở
+
+
+| Danh sách khách đang chờ: [2]
+| Danh sách khách đang chờ: [2]
+
+
+
+===========================================================
+
+===========================================================
+
+
+
+=========================BARBER SHOP=========================
+
+| Hành động: Thợ đang cắt tóc cho khách hàng 2
+
+| Trạng thái barber shop: Đang mở
+
+| Danh sách khách đang chờ: Không có khách
+
+
+===========================================================
+
+
+=========================BARBER SHOP=========================
+
+| Hành động: Thợ đã cắt tóc xong cho khách hàng 2
+
+| Trạng thái barber shop: Đang mở
+
+| Danh sách khách đang chờ: Không có khách
+
+
+===========================================================
+
+
+=========================BARBER SHOP=========================
+
+
+=========================BARBER SHOP=========================
+| Hành động: Không có khách hơn 5 giây. Đóng cửa tiệm.
+
+
+| Hành động: Khách hàng 2 đã cắt tóc xong
+| Trạng thái barber shop: Đang mở
+
+
+| Trạng thái barber shop: Đang mở
+| Danh sách khách đang chờ: Không có khách
+
+
+| Danh sách khách đang chờ: Không có khách
+
+===========================================================
+
+
+
+===========================================================
+
+
+=========================BARBER SHOP=========================
+
+| Hành động: Tiệm cắt tóc đã đóng cửa
+
+| Trạng thái barber shop: Đóng cửa
+
+| Danh sách khách đang chờ: Không có khách
+
+
+===========================================================

@@ -1,0 +1,35 @@
+The barber is sleeping...
+The barber is sleeping...
+The barber is sleeping...
+Customer 1 is waiting in the waiting room
+Customer 2 is waiting in the waiting room
+The barber invite customer to cutting hair...
+Customer 3 is waiting in the waiting room
+
+The barber is cutting hair for customer 1
+Customer 5 is waiting in the waiting room
+Customer 0 is leaving because the waiting room is full
+Customer 4 is leaving because the waiting room is full
+The barber has finished cutting hair for customer 1
+The barber invite customer to cutting hair...Customer 1 has finished getting a haircut
+
+The barber is cutting hair for customer 2
+The barber has finished cutting hair for customer 2
+Customer 2 has finished getting a haircutThe barber invite customer to cutting hair...
+
+The barber is cutting hair for customer 3
+The barber has finished cutting hair for customer 3
+The barber invite customer to cutting hair...
+Customer 3 has finished getting a haircut
+The barber is cutting hair for customer 5
+The barber has finished cutting hair for customer 5
+The barber is sleeping...Customer 5 has finished getting a haircut
+
+Giải thích ký hiệu:
++ Số i là khách hàng i đi vào xếp hàng
++ c(i)[j,k] nghĩa là bắt đầu cắt tóc cho i , waiting chair đang có khách j,k
++ d(i)[j,l] nghĩa là đã cắt xong tóc cho i , waiting chair đang có khách j,k
++ l(i) nghĩa là do waiting chair đã full nên khách i rời khỏi quán.
+
+Flow của tiến trình trên:
+1->2->c->3->c(1)[2,3]->5->l(0)->l(4)->d(1)[2,3,5]->c(2)[3,5]->d(2)[3,5]->c(3)[5]
