@@ -8,7 +8,6 @@ import keyboard
 from datetime import datetime
 import colorama
 from colorama import Fore, Back, Style
-import contextlib
 
 # Khởi tạo các biến toàn cục
 MAX_CHAIRS = 3  # Số ghế chờ tối đa
@@ -19,6 +18,7 @@ customer_ready = threading.Event()  # Sự kiện khách hàng sẵn sàng
 mutex = threading.Lock()  # Mutex để đồng bộ hóa truy cập
 program_running = True  # Biến kiểm soát chương trình
 last_customer_time = time.time()  # Thời gian khách cuối cùng đến
+
 
 # Khởi tạo colorama để hỗ trợ màu trong terminal Windows
 colorama.init()
@@ -58,26 +58,22 @@ def print_shop_status(action, extra_info=""):
     shop_status = f"{Fore.GREEN}Đang mở{Style.RESET_ALL}" if program_running else f"{Fore.RED}Đóng cửa{Style.RESET_ALL}"
     
     # In thông tin được định dạng
-    output = "\n" + title + "\n"
-    output += f"{border_color}║{Style.RESET_ALL} {'BARBER SHOP':^56} {border_color}║{Style.RESET_ALL}\n"
-    output += f"{border_color}╠{'═' * 58}╣{Style.RESET_ALL}\n"
-    output += f"{border_color}║{Style.RESET_ALL} Thời gian : {Fore.YELLOW}{get_current_time()}{Style.RESET_ALL}\n"
-    output += f"{border_color}║{Style.RESET_ALL} Trạng thái: {shop_status}\n"
-    output += f"{border_color}║{Style.RESET_ALL} Hành động : {Fore.WHITE}{action}{Style.RESET_ALL}\n"
-    output += f"{border_color}╟{'─' * 58}╢{Style.RESET_ALL}\n"
-    output += f"{border_color}║{Style.RESET_ALL} Ghế trống : {empty_chairs}/{MAX_CHAIRS} {chairs_status}\n"
-    output += f"{border_color}║{Style.RESET_ALL} Danh sách chờ: {format_customer_list(list(waiting_customers.queue) if not waiting_customers.empty() else None)}\n"
+    print("\n" + title)
+    print(f"{border_color}║{Style.RESET_ALL} {'BARBER SHOP':^56} {border_color}║{Style.RESET_ALL}")
+    print(f"{border_color}╠{'═' * 58}╣{Style.RESET_ALL}")
+    print(f"{border_color}║{Style.RESET_ALL} Thời gian : {Fore.YELLOW}{get_current_time()}{Style.RESET_ALL}")
+    print(f"{border_color}║{Style.RESET_ALL} Trạng thái: {shop_status}")
+    print(f"{border_color}║{Style.RESET_ALL} Hành động : {Fore.WHITE}{action}{Style.RESET_ALL}")
+    print(f"{border_color}╟{'─' * 58}╢{Style.RESET_ALL}")
+    print(f"{border_color}║{Style.RESET_ALL} Ghế trống : {empty_chairs}/{MAX_CHAIRS} {chairs_status}")
+    print(f"{border_color}║{Style.RESET_ALL} Danh sách chờ: {format_customer_list(list(waiting_customers.queue) if not waiting_customers.empty() else None)}")
     
     if extra_info:
-        output += f"{border_color}╟{'─' * 58}╢{Style.RESET_ALL}\n"
-        output += f"{border_color}║{Style.RESET_ALL} {Fore.MAGENTA}→ {extra_info}{Style.RESET_ALL}\n"
+        print(f"{border_color}╟{'─' * 58}╢{Style.RESET_ALL}")
+        print(f"{border_color}║{Style.RESET_ALL} {Fore.MAGENTA}→ {extra_info}{Style.RESET_ALL}")
     
-    output += footer + "\n"
-    
-    print(output)
-    # Ghi thông tin vào file
-    with open("output.txt", "a", encoding="utf-8") as f:
-        f.write(output + "\n")
+    print(footer + "\n")
+
 
 def check_closing_conditions():
     global program_running
