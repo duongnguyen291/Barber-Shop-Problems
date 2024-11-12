@@ -11,7 +11,7 @@ from colorama import Fore, Back, Style
 import contextlib
 
 # Khởi tạo các biến toàn cục
-MAX_CHAIRS = 3  # Số ghế chờ tối đa
+MAX_CHAIRS = 3  # Số ghế chờ tối đa (có thể thay đổi tùy case)
 NO_OF_BARBERS = 1  # Số thợ cắt tóc
 waiting_customers = Queue(MAX_CHAIRS)  # Hàng đợi khách hàng
 barber_ready = threading.Event()  # Sự kiện thợ cắt sẵn sàng
@@ -19,9 +19,19 @@ customer_ready = threading.Event()  # Sự kiện khách hàng sẵn sàng
 mutex = threading.Lock()  # Mutex để đồng bộ hóa truy cập
 program_running = True  # Biến kiểm soát chương trình
 last_customer_time = time.time()  # Thời gian khách cuối cùng đến
+test_case = 1  # Trường hợp test mặc định
 
 # Khởi tạo colorama để hỗ trợ màu trong terminal Windows
 colorama.init()
+
+def show_menu():
+    global test_case
+    print("\nChọn trường hợp test để bắt đầu:")
+    print("1. Trường hợp 1: Khách đến với tốc độ đều đặn, đủ ghế chờ cho tất cả khách")
+    print("2. Trường hợp 2: Khách đến thường xuyên, ít ghế chờ hơn, kiểm tra khách rời đi khi hết chỗ")
+    print("3. Trường hợp 3: Khách đến ngẫu nhiên không đều, kiểm tra phản ứng khi tải không thể dự đoán")
+    print("4. Trường hợp 4: Nhiều khách đến đồng thời, kiểm tra hiệu quả cơ chế khóa tránh xung đột")
+    test_case = int(input("Nhập số từ 1 đến 4 để chọn trường hợp: "))
 
 def create_progress_bar(current, total, width=20):
     """Tạo thanh tiến trình trực quan cho số ghế trống"""
@@ -138,6 +148,37 @@ def customer(customer_id):
 
     customer_ready.set()  # Đánh thức thợ cắt
 
+def simulate_customers(case):
+    customer_id = 1
+    while program_running:
+        try:
+            if case == 1:
+                time.sleep(2)  # Khách đến đều đặn
+            elif case == 2:
+                time.sleep(1)  # Khách đến nhanh, dễ đầy ghế
+            elif case == 3:
+                time.sleep(random.randint(1, 5))  # Khách đến ngẫu nhiên
+            elif case == 4:
+                # Giả lập nhiều khách đến cùng lúc
+                threads = []
+                for _ in range(random.randint(2, 5)):
+                    customer_thread = threading.Thread(target=customer, args=(customer_id,))
+                    threads.append(customer_thread)
+                    customer_thread.start()
+                    customer_id += 1
+                for t in threads:
+                    t.join()
+                time.sleep(3)  # Khoảng cách giữa các lần nhiều khách đến
+            else:
+                break
+            if program_running:
+                customer_thread = threading.Thread(target=customer, args=(customer_id,))
+                customer_thread.start()
+                customer_id += 1
+        except Exception as e:
+            print(f"Lỗi: {e}")
+            break
+
 def shop_controller():
     # Khởi tạo các thợ cắt tóc
     barbers = []
@@ -156,18 +197,8 @@ def shop_controller():
     input_handler.daemon = True
     input_handler.start()
 
-    # Mô phỏng khách hàng đến
-    customer_id = 1
-    while program_running:
-        try:
-            time.sleep(random.randint(1, 3))  # Thời gian giữa các khách hàng
-            if program_running:  # Kiểm tra lại trước khi tạo khách mới
-                customer_thread = threading.Thread(target=customer, args=(customer_id,))
-                customer_thread.start()
-                customer_id += 1
-        except Exception as e:
-            print(f"Lỗi: {e}")
-            break
+    # Chạy kịch bản khách hàng
+    simulate_customers(test_case)
 
     # Đợi tất cả thợ cắt hoàn thành công việc
     print_shop_status("Tiệm đang đóng cửa, chờ phục vụ nốt khách còn lại")
@@ -178,5 +209,6 @@ def shop_controller():
     sys.exit(0)
 
 if __name__ == "__main__":
+    show_menu()
     print_shop_status("Tiệm đang mở cửa", "Khởi động hệ thống...")
     shop_controller()
