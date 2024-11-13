@@ -93,7 +93,7 @@ def check_closing_conditions():
     global program_running
     while program_running:
         current_time = time.time()
-        if current_time - last_customer_time > 4 and waiting_customers.empty():
+        if current_time - last_customer_time > 5 and waiting_customers.empty():
             print_shop_status("Đóng cửa tự động do không có khách trong 4 giây")
             program_running = False
             customer_ready.set()  # Đánh thức thợ cắt để kết thúc
